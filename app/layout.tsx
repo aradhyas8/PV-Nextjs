@@ -1,6 +1,10 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import Hero from '@/components/Hero'
+import Navbar from '@/components/Navbar'
+import { ThemeProvider } from '@/components/theme-provider'
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,7 +20,24 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className="font-inter">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+        <div className="flex h-screen">
+          <div className="w-1/2 overflow-hidden text-center py-24">
+            <Hero />
+            <Navbar />
+          </div>
+          <div className="w-1/2 overflow-auto ">
+            {children}
+          </div>
+        </div>
+        </ThemeProvider>
+      </body>
     </html>
   )
 }
