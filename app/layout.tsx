@@ -1,8 +1,48 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Open_Sans, Noto_Sans, Montserrat } from 'next/font/google'
 import './globals.css'
+import '@radix-ui/themes/styles.css'; 
+import { Theme } from '@radix-ui/themes';
+import { gray } from '@radix-ui/colors'
+import localFont from 'next/font/local'
 
-const inter = Inter({ subsets: ['latin'] })
+
+
+const ppmori = localFont({
+  src: '../public/fonts/PPMori-Regular.otf',
+  variable: '--ppMori',
+  weight: '400',
+})
+
+
+const openSans = Open_Sans({
+  subsets: ["latin"],
+  variable: "--openSans",
+  weight: ['400', '500', '700']
+});
+
+const notoSans = Noto_Sans({
+  subsets: ["latin"],
+  variable: "--notoSans",
+  weight: ['400', '500', '700']
+});
+
+const mont = Montserrat({
+  subsets: ["latin"],
+  variable: "--mont",
+  weight: ['400', '500', '700']
+});
+
+const sfpromed = localFont({
+  src: '../public/fonts/sfpromed.otf',
+  variable: '--sfpromed',
+  weight: '400, 500'
+})
+const sfproreg = localFont({
+  src: '../public/fonts/sfproreg.otf',
+  variable: '--ppMori',
+  weight: '400',
+})
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -15,8 +55,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en"> 
+      <body className='bg-[#e1dfdd] dark:bg-[#191825] overflow-x-hidden font-sfpromed'>
+        {children}
+      </body>
     </html>
   )
 }
