@@ -18,19 +18,14 @@ const ppmori = localFont({
 export default function Home() {
   return (
     <main className='font-ppmori overflow-x-hidden border'>
-      <div className="lg:grid lg:grid-cols-10 ">
-        <div className=" col-span-1 border border-black">Hello</div>
-        <div className="col-span-8 px-5 md:px-0">
+      
           <Head />
           <About />
           <Exp2 />
           <Pro2 />
           <Contact />
-        </div>
-        <div className="col-span-1 border border-black ">
           <Navbar />
-        </div>
-      </div>
+    
     </main>
   )
 }
